@@ -1,67 +1,75 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import mysql.connector
 import smtplib
 from email.message import EmailMessage
-import mysql.connector   
 
 app = Flask(__name__)
 CORS(app)
 
-# Email setup
 EMAIL = "gidionmasanja35@gmail.com"
-PASSWORD = "rkyweyhdeqlezijn"
+PASSWORD = "hvzvcazqgnclhpbu"  
 
 db_config = {
-    "host": "localhost",   
-    "user": "root",          
-    "password": "", 
-    "database": "bookingdb"     
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "bookingdb"
 }
 
-# Home route
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
-    return "Backend is working ✅"
+    return jsonify({
+        "status": "ok",
+        "message": "Backend running ✅"
+    })
 
-# Booking / message route
 @app.route("/send", methods=["POST"])
 def send():
-
-    data = request.json
-
-    name = data["name"]
-    email = data["email"]
-    phone = data["phone"]
-    package = data["package"]
-    date = data["date"]
-    people = data["people"]
-    message = data["message"]
-
     try:
+        data = request.get_json(force=True, silent=True)
+
+        if not data:
+            return jsonify({
+                "status": "error",
+                "message": "No JSON received"
+            }), 400
+
+        print("RECEIVED DATA:", data)
+
+        name = data.get("name")
+        email = data.get("email")
+        phone = data.get("phone")
+        package = data.get("package")
+        date = data.get("date")
+        people = data.get("people")
+        message = data.get("message")
+
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
+
         cursor.execute("""
             INSERT INTO bookings (name, email, phone, package, date, people, message)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """, (name, email, phone, package, date, people, message))
+
         conn.commit()
         cursor.close()
         conn.close()
-    except Exception as db_error:
-        return jsonify({"status": "error", "msg": f"Database error: {db_error}"})
 
-    # Send email notification
-    msg = EmailMessage()
-    msg["Subject"] = "New Tour Booking / Message"
-    msg["From"] = EMAIL
-    msg["To"] = EMAIL
-    msg.set_content(f"""
-NEW WEBSITE MESSAGE
+        print("DATABASE SAVED ✅")
+
+        msg = EmailMessage()
+        msg["Subject"] = "New Tour Booking"
+        msg["From"] = EMAIL
+        msg["To"] = EMAIL
+
+        msg.set_content(f"""
+NEW TOUR BOOKING RECEIVED
 
 Name: {name}
 Email: {email}
 Phone: {phone}
-
 Package: {package}
 Date: {date}
 People: {people}
@@ -70,16 +78,25 @@ Message:
 {message}
 """)
 
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(EMAIL, PASSWORD)
-            server.send_message(msg)
+        server = smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30)
+        server.login(EMAIL, PASSWORD)
+        server.send_message(msg)
+        server.quit()
 
-        return jsonify({"status": "ok", "msg": "Booking saved and email sent!"})
+        print("EMAIL SENT ✅")
+
+        return jsonify({
+            "status": "success",
+            "message": "Message sent successfully ✅"
+        })
 
     except Exception as e:
-        return jsonify({"status": "error", "msg": f"Email error: {str(e)}"})
+        print("ERROR ❌:", e)
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)

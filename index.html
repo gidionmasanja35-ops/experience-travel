@@ -1232,59 +1232,45 @@
         }
 
 
-        @media screen and (max-width: 900px) {
-            .card-container {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-
-            .accommodation-card {
-                flex: 1 1 45%;
-                max-width: unset;
-            }
-        }
 
 
-        @media screen and (max-width: 600px) {
-            .accommodation-section header h2 {
-                font-size: 1.8em;
-            }
 
-            .intro-text {
-                padding: 0 10px;
-                margin-bottom: 30px;
-            }
 
-            .card-containers {
+
+        @media screen and (max-width: 768px) {
+            .accommodation-wrapper {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                text-align: center;
             }
 
-            .accommodation-card {
-                width: 90%;
-                max-width: 450px;
+            .accommodation-image-container {
+                width: 100%;
+                order: 1;
+                margin-bottom: 20px;
+            }
+
+            .accommodation-content {
+                width: 100%;
+                order: 2;
+                padding: 0 15px;
             }
         }
 
-        .loof {
-            background-color: #f8f4f4;
+        @media screen and (max-width: 480px) {
+            .accommodation-wrapper {
+                padding: 10px;
+            }
 
-        }
+            .accommodation-image-container img {
+                border-radius: 12px;
+            }
 
-        .lodges-suggestion-section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #38761d;
-
-            margin-bottom: 10px;
+            .explore-btn {
+                display: inline-block;
+                width: 80%;
+                margin: 15px auto 0;
+                text-align: center;
+            }
         }
 
         .section-description {
@@ -2163,40 +2149,62 @@
 
 
 
-        .hero {}
+
 
 
         .hero {
-            position: relative;
-            width: 100%;
             height: 100vh;
+            background: url("R.jpg") center/cover no-repeat;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            min-height: 100vh;
-            background-position: center;
-            background-size: cover;
-            background-image: url(R.jpg);
+            padding: 0 80px;
         }
 
-        /* @keyframes bgimages {
-            0% {
-                background-image: url(wall.jpg);
+        .hero-content {
+            width: 50%;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 70px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .hero-content h2 {
+            font-size: 55px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin: 10px 0;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .book-btn {
+            padding: 12px 30px;
+            border: 2px solid #00ffff;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #00ffff;
+            font-weight: bold;
+
+            &:hover {
+                background-color: white;
             }
-
-            50% {
-                background-image: url(R.jpg);
-            }
+        }
 
 
 
-            100% {
-                background-image: url(tree.jpg);
-            }
+        .hero-right {
+            width: 50%;
+        }
 
-        }*/
 
         .dots-container {
             position: absolute;
@@ -3399,116 +3407,575 @@
             background-color: #f0f2f5;
         }
 
-        #chat-icon {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: #007bff;
+
+
+        .main-hero {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+                url('istockphoto-178586669-612x612.jpg');
+            padding: 160px 8% 50px 8%;
+            display: flex;
+            align-items: flex-start;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #f9f7f7;
+            margin-top: 50px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            max-width: 480px;
+            line-height: 1.5;
+            color: #f1f0f0;
+        }
+
+        .hero-right {
+            flex: 0 0 480px;
+
+        }
+
+        .form-card.wide-box {
+            background: #3e5633;
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            width: 100%;
+
+        }
+
+
+        .form-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-right: 15px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .field label {
+            display: block;
+            color: #ffb347;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .field input {
+            width: 100%;
+            height: 50px;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-customize {
+            display: block;
+            background-color: #ff9800;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-container ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .footer-container ul li a:hover {
+            color: #f4c542;
+            /* Change color when hover */
+            animation: shake 0.4s ease-in-out;
+        }
+
+        /* Keyframes for shaking */
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .btn-customize:hover {
+            background-color: #e68a00;
+            transform: translateY(-2px);
+
+        }
+
+        .btn-customize:active {
+            transform: translateY(0);
+        }
+
+        .disclaimer {
+            color: #f0f0f0;
+            font-size: 14px;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        .btn-start a {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+
+
+
+
+
+        .btn-book {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0076bd;
+            }
+        }
+
+        .guide-badge img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            border: 4px solid #ffb83d;
+        }
+
+
+        @media (max-width: 768px) {
+            .input-row {
+                display: flex;
+                flex-direction: row !important;
+                gap: 12px;
+            }
+
+            .input-row .field {
+                flex: 1;
+                min-width: 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .input-row {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .field input {
+                height: 42px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+
+            padding-bottom: 33.75%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .unique-section {
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+        }
+
+        .unique-section h2 {
+            font-size: 2.5rem;
+            color: #1a100a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #8d6e63;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+
+        .feature-card:hover {
+            background-color: #fffaf5;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover .icon-circle {
+            background-color: #d18d3b;
+            color: white;
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+
+        .feature-card.is-selected {
+            background-color: #fff5eb;
+            border: 2px solid #d18d3b;
+            box-shadow: 0 10px 20px rgba(209, 141, 59, 0.1);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #fff5eb;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-            transition: all 0.3s ease;
+            margin: 0 auto 20px auto;
+            font-size: 30px;
+            color: #d18d3b;
         }
 
-        #chat-icon:hover {
-            transform: scale(1.1);
-            background: #0056b3;
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: #000;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
-        #chat-container {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 380px;
-            height: 400px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 9999;
-            border: 1px solid #ddd;
+        .feature-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        #chat-header {
-            background: #007bff;
-            color: white;
-            padding: 20px;
-            font-weight: bold;
+        .field.date-field {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        @media screen and (max-width: 992px) {
+            .hero-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .hero-right {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 480px;
+            }
+
+            .hero-desc {
+                margin: 0 auto;
+            }
+
+            @media (max-width: 480px) {
+                .input-row {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .field.date-field {
+                    width: 100%;
+                }
+            }
+        }
+
+
+
+
+        @media (max-width: 400px) {
+            .input-row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .main-hero {
+                padding: 80px 5% 50px 5%;
+            }
+
+            .hero-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-right {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .hero-desc {
+                margin: 0 auto;
+            }
+        }
+
+        .book {
+            background: linear-gradient(135deg, #3f5f3a, #2f472b);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .learn {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .learn:hover {
+            background: #fff;
+            color: #3f5f3a;
+            transform: translateY(-3px);
+        }
+
+
+        .hero-btns {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 14px;
+            margin-top: 28px;
         }
 
-        #close-btn {
-            cursor: pointer;
-            font-size: 24px;
+        .hero-btn {
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
             line-height: 1;
         }
 
-        #chat-box {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: #f9f9f9;
+        .hero-btn.primary {
+            background-color: #3f5f3a;
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
         }
 
-        .message {
-            padding: 10px 15px;
-            border-radius: 15px;
-            max-width: 85%;
-            font-size: 14px;
-            line-height: 1.4;
+        .hero-btn.primary:hover {
+            background-color: #2f4b2c;
         }
 
-        .user {
-            background: #007bff;
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
+        .hero-btn.secondary {
+            background-color: rgba(0, 0, 0, 0.45);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .bot {
-            background: #e4e6eb;
-            color: #1c1e21;
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
+        .hero-btn.secondary:hover {
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
-        #input-area {
-            display: flex;
-            padding: 15px;
+
+        @media (max-width: 768px) {
+            .hero-btns {
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .hero-btn {
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+        }
+
+        .mega-dropdown {
+            position: relative;
+        }
+
+        .mega-menu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 1000px;
             background: white;
-            border-top: 1px solid #eee;
+            padding: 30px;
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
         }
 
-        #user-input {
-            flex: 1;
-            border: 1px solid #ddd;
-            padding: 12px;
-            outline: none;
-            border-radius: 25px;
-            margin-right: 10px;
+        .mega-dropdown:hover .mega-menu {
+            display: grid;
         }
 
-        #send-btn {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 0 20px;
-            cursor: pointer;
-            border-radius: 25px;
+        .mega-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .mega-item h5 {
+            margin-top: 10px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        .yellow-box {
+            background: #f4c430;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             font-weight: bold;
+        }
+
+        .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
         }
     </style>
 
@@ -3569,6 +4036,53 @@
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 
+                <!-- <li class="nav-item dropdown mega-dropdown">
+                    <a class="nav-link" href="#">Discover Tanzania</a>
+
+                    <div class="mega-menu">
+                        <div class="mega-item">
+                            <img
+                                src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=1600&q=80">
+                            <a href="island.html">
+                                <h5>Islands</h5>
+                            </a>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="zanz-bed.jpg">
+                            <a href="book-your.html">
+                                <h5>Accommodations</h5>
+                            </a>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="mosh1.jpg">
+                            <a href="haneymoon.html">
+                                <h5>Houneymoon</h5>
+                            </a>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="istockphoto-999135278-612x612.jpg">
+                            <a href="destinations.html">
+                                <h5>National Park</h5>
+                            </a>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="IMG-20251021-WA0002.jpg">
+                            <h5>Traveller Reviews</h5>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="istockphoto-178586669-612x612.jpg">
+                            <a href="ley.html">
+                                <h5>Request a Proposal<br>At No Charge</h5>
+                            </a>
+                        </div>
+                    </div>
+                </li> -->
+
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
@@ -3584,7 +4098,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#activity-sm">Activities</a>
+                        <a class="nav-link" href="about-us.html">About Us</a>
                     </li>
 
                     <li class="nav-item">
@@ -3596,7 +4110,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="cont.html">Contact</a>
+                        <a class="nav-link" href="#only-cont">Contact</a>
                     </li>
 
 
@@ -3606,54 +4120,62 @@
     </nav>
 
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="title">LUXURY & EXCLUSIVE</h1>
-            <h2 class="outline">SAFARIS</h2>
-            <p class="subtitles">HOLLGRIVENS JOURNEY</p>
 
 
-            <div class="sem-btrn">
-                <a href="#only-cont">Book Now</a>
+    <div class="main-hero">
+        <div class="hero-content-wrapper">
 
+            <div class="hero-left">
+                <h2 class="hero-title">Experience the <br> Wonders of Tanzania</h2>
+                <p class="hero-desc">Join Steve Safaris for unforgettable wildlife adventures, scenic landscapes, and
+                    immersive cultural experiences in the heart of Tanzania.</p>
+
+                <div class="hero-btns">
+                    <a href="#only-cont" class="hero-btn primary">Book Now</a>
+                    <a href="about-us.html" class="hero-btn secondary">Learn More About Us</a>
+                </div>
             </div>
 
+            <div class="hero-right">
+                <div class="form-card wide-box">
+                    <div class="guide-badge">
 
+                    </div>
 
+                    <div class="form-header">
+                        <h3>LET'S PLAN YOUR <br> DREAM TRIP TOGETHER!</h3>
+                    </div>
 
+                    <form>
+                        <div class="input-row">
+                            <div class="field">
+                                <label>ADULTS</label>
+                                <input type="number" value="2" class="large-input">
+                            </div>
+                            <div class="field">
+                                <label>CHILDREN</label>
+                                <input type="number" value="0" class="large-input">
+                            </div>
+                        </div>
+
+                        <div class="field date-field">
+                            <label>ESTIMATED ARRIVAL DATE</label>
+                            <input type="date" class="fields" placeholder="mm/dd/yyyy">
+                        </div>
+
+                        <div class="booking-card">
+                            <a href="ley.html" class="btn-customize">START CUSTOMIZING</a>
+
+                            <p class="disclaimer">No strings attached. We'll design your trip - no cost, no commitment.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <!-- <a href="https://wa.me/255694424758?text=I'm%20interested%20in%20your%20service" class="whatsapp"><i
-                class="fa-brands fa-whatsapp"></i></a> -->
-
-        <!-- <div id="chat-icon">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-        </div>
-
-        <div id="chat-container">
-            <div id="chat-header">
-                <span>AI Support Agent</span>
-                <span id="close-btn">&times;</span>
-            </div>
-            <div id="chat-box">
-                <div class="message bot">Hello! How can I help you today?</div>
-            </div>
-            <div id="input-area">
-                <input type="text" id="user-input" placeholder="Type your message...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
- -->
-
-
-
+    </div>
 
     </section>
-
-
-
 
     <div class="all" id="destination-home">
         <div class="first-parag">
@@ -3740,67 +4262,34 @@
                 </div>
             </div>
 
-
-
-
-
         </div>
-
 
         <div class="card-containerer">
             <a href="zanzbar.html" class="small-card">
                 <span class="main-text">ZANZIBAR</span>
             </a>
 
-            <a href="golden-hotel.html" class="small-card">
+            <a href="island.html" class="small-card">
                 <span class="main-text">ISLAND</span>
             </a>
 
 
         </div>
 
-
-
-
-
         <h1 class="main-title" style="color: #0b5b1c;">Serengeti Park video</h1>
 
-        <div class="text-block">
-            <p>
-                The best way of understanding what Serengeti National Park is about is
-                by seeing some thrilling footage from the area. Watch this video to experience the
-                Serengeti, its splendour and to meet some of our celebrity wildlife species.
-            </p>
-            <p>
-                Be careful, after watching this video you can be sure that you want to travel to Tanzania.
-                Today.
-            </p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/UOr7wlJItPo?si=d4UcRrfIthNhmKNy"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
-        <div class="video-wrapper">
-            <div class="video-placeholderes">
-                <div class="video-overlay-content">
-                    <iframe width="756" height="425" src="https://www.youtube.com/embed/IfxoZ_tiE0g"
-                        title="Serengeti National Park, Tanzania  [Amazing Places 4K]" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                </div>
-            </div>
-
-        </div>
-
-        </section>
-
-
-
 
     </div>
 
     <section class="stats-section">
         <div class="stat-box">
             <div class="icon-circle"><i class="fas fa-plane"></i></div>
-            <!-- <div class="stat-number" data-count="100">0</div> -->
             <span class="counter" data-count="100" style="font-size: 3rem; font-weight:500">0</span>
             <div class="stat-label">Luxury Safaris</div>
         </div>
@@ -3825,48 +4314,6 @@
             <div class="stat-label">Cultural Activities</div>
         </div>
     </section>
-
-
-    <!-- <div class="loof">
-        <section class="accommodation-section" id="accomodation-home">
-            <header>
-                <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; color:#ff6600">ACCOMMODATION</h2>
-            </header>
-
-            <p class="intro-text">
-                There are a variety of accommodation properties within NCA, ranging from luxury hotels, lodges,
-                tented
-                camps
-                and public camping sites located in some of the most pristine scenic areas.
-            </p>
-
-            <div class="card-containers">
-                <div class="accommodation-card">
-                    <img src="b2bf1c68ffa43769fae0bcfa239c57ab.jpg" alt="Luxury hotel or lodge room">
-                    <div class="card-overlay">
-                        <p class="card-title">LODGE & HOTEL</p>
-                        <a href="book-your.html" class="view-button">VIEW</a>
-                    </div>
-                </div>
-
-                <div class="accommodation-card">
-                    <img src="8d5165000043347b1df79091f0ff6110.jpg" alt="Permanent settlement accommodation tent">
-                    <div class="card-overlay">
-                        <p class="card-title">PERMANENT SETTLEMENT ACCOMMODATION</p>
-                        <a href="#" class="view-button">VIEW</a>
-                    </div>
-                </div>
-
-                <div class="accommodation-card">
-                    <img src="7422cedb08b8ec241ea2e6c689e13d5c.jpg" alt="Temporary campsite tent and outdoor area">
-                    <div class="card-overlay">
-                        <p class="card-title">TEMPORARY CAMPSITE</p>
-                        <a href="#" class="view-button">VIEW</a>
-                    </div>
-                </div>
-            </div>
-        </section>  -->
-
 
     <div class="loof">
         <section class="accommodation-section" id="accomodation-home">
@@ -3901,145 +4348,42 @@
     </section>
 
 
-    <div class="plain slide active" id="vision-slide">
-        <i class="fa-solid.fa-quote-left" id="liq-vision"></i>
-        <h1 class="vsio">VISION</h1>
+    <section class="unique-section">
+        <div class="container">
+            <h2>What Makes Us Unique</h2>
+            <p class="subtitle">Experience Tanzania like never before with expert guidance, personalized service, and
+                unforgettable adventures.</p>
 
-        <div class="plain-p">
-            "To become the superlative <br> Tourism & Transportation Operator in <br> Tanzania & Africa at Large"
-        </div>
-    </div>
-
-    <div class="plain slide" id="mission-slide">
-        <i class="fa-solid.fa-quote-left" id="liq-mission"></i>
-        <h1 class="vsio">MISSION</h1>
-
-        <div class="plain-p">
-            "To provide unforgettable, safe,<br> and quality travel experiences <br>while promoting <br> sustainable
-            tourism and
-            empowering local communities."
-
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <section class="activities-section" id="activity-sm">
-        <header>
-            <h2 class="section-title">HOLL TOUR SIGNATURE SAFARI ACTIVITIES</h2>
-            <p class="section-description">
-                Experience the wild in ways no one else offers. These unique excursions go beyond the
-                traditional
-                game
-                drive, giving you exclusive access to conservation efforts and specialized landscapes.
-            </p>
-        </header>
-
-        <div class="slider-wrapper">
-
-            <button class="slider-nav prev-btn" id="prev-activity-btn" aria-label="Previous Activity">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <div class="slider-track" id="slider-track">
-
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="7149d752291265267c69a4246c9b5753.jpg" alt="Game Drive">
-                    </div>
-                    <div class="card-content">
-                        <h3>Game Drive</h3>
-                        <p>Set out before sunrise with a research ranger to track collared predators using radio
-                            telemetry. This hands-on conservation experience offers real-time insights into wildlife
-                            behavior and ecosystem dynamics.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
+            <div class="grid">
+                <div class="feature-card">
+                    <div class="icon-circle">🔭</div>
+                    <h3>Expert Local Guides</h3>
+                    <p>Our knowledgeable guides ensure safe, authentic, and immersive experiences in every destination.
+                    </p>
                 </div>
 
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="4b61e37592b07e4ee93a698482216dde.jpg" alt="Maasai elders under starry night">
-                    </div>
-                    <div class="card-content">
-                        <h3>Maasai Stargazer Boma</h3>
-                        <p>Join Maasai elders at twilight to explore ancient star lore. Using powerful telescopes,
-                            you'll view the Milky Way while learning how celestial wisdom guides traditional life
-                            and seasonal rhythms.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
+                <div class="feature-card">
+                    <div class="icon-circle">🗺️</div>
+                    <h3>Custom Itineraries</h3>
+                    <p>Every trip is personalized to your interests, from wildlife safaris to cultural exploration.</p>
                 </div>
 
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="b4771af9ec216865b5c996438a98f5c3.jpg" alt="Walking Activities">
-                    </div>
-                    <div class="card-content">
-                        <h3>Walking Activities </h3>
-                        <p>Walk through geothermal landscapes with thermal cameras to uncover hidden hot springs and
-                            geological wonders. This immersive activity blends science, exploration, and photography
-                            in nature’s most dynamic settings.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
+                <div class="feature-card">
+                    <div class="icon-circle">🎧</div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>We're available anytime to assist with bookings, guidance, or any questions during your journey.
+                    </p>
                 </div>
 
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="7134eb231fa66597dfdd4d6790c9fa78.jpg" alt="photographic Activities">
-                    </div>
-                    <div class="card-content">
-                        <h3>photographic Activities</h3>
-                        <p>Capture the beauty of nature with our guided photographic safaris. Experience the thrill
-                            of spotting wild animals up close, learn camera techniques from experts, and take home
-                            unforgettable memories of Tanzania’s breathtaking landscapes.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
+                <div class="feature-card">
+                    <div class="icon-circle">🌍</div>
+                    <h3>Authentic Tanzanian Experiences</h3>
+                    <p>Explore local cultures, hidden gems, and breathtaking landscapes for a truly unforgettable
+                        adventure.</p>
                 </div>
-
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="Olivers_Camp-8.jpg" alt="Chef cooking in safari camp kitchen">
-                    </div>
-                    <div class="card-content">
-                        <h3>Chef cooking in safari camp kitchen</h3>
-                        <p>Go behind-the-scenes! Learn 'Bush Gourmet' secrets from your private chef, from
-                            cooking
-                            to
-                            crafting sundowner cocktails.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
-                </div>
-
-                <div class="activity-card featured hidden">
-                    <div class="card-image">
-                        <img src="OIP (6).webp" alt="Ballon Activities">
-                    </div>
-                    <div class="card-content">
-                        <h3>Ballon Activities</h3>
-                        <p>Go behind-the-scenes! Learn 'Bush Gourmet' secrets from your private chef, from
-                            cooking
-                            to
-                            crafting sundowner cocktails.</p>
-                        <a href="#" class="details-button">Explore</a>
-                    </div>
-                </div>
-
             </div>
-
-            <button class="slider-nav next-btn" id="next-activity-btn" aria-label="Next Activity">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-
         </div>
-
-        <a href="view-all.html" class="details-button" style="width: 150px; ">View All</a>
     </section>
-
-    <script src="app.js"></script>
-
 
 
 
@@ -4086,9 +4430,9 @@
                 <div class="card text-center"><img class="card-img-top" src="PXL_20251017_100203461.PORTRAIT.jpg"
                         alt="">
                     <div class="card-body">
-                        <h5>Asheeqa Mussa
+                        <h5>Vero Massawe
 
-                            <span> Ashly </span>
+                            <span> Veima </span>
                         </h5>
                         <p class="card-text">“ “Very well planned tour. Comfortable transport, great food, and
                             awesome views. Totally worth the price!” </p>
@@ -4097,9 +4441,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 
     <section class="why-travel">
@@ -4118,9 +4459,6 @@
             </p>
         </div>
     </section>
-
-
-
 
     <header class="gallery-header" id="gallery-home">
         <h1>GALLERY</h1>
@@ -4155,19 +4493,19 @@
             <div class="gallery-item"><img src="72169955d6c44ad504d7cfb3e28ade33.jpg" alt="Safari jeep and elephant">
             </div>
             <div class="gallery-item"><img src="3de4cace4250f8f5160099808e0dc8b1.jpg" alt="Black rhino"></div>
-            <div class="gallery-item"><img src="5cc63416f068f61d3e0b5b5ed0724b40.jpg" alt="Flamingos at a lake">
+            <div class="gallery-item"><img src="lod5.jpg" alt="Flamingos at a lake">
             </div>
             <div class="gallery-item"><img src="d79ee86d60c6f68061bb5c37c24409cb.jpg" alt="Zebras by the water">
             </div>
-            <div class="gallery-item"><img src="5cc63416f068f61d3e0b5b5ed0724b40.jpg" alt="Elephant drinking water">
+            <div class="gallery-item"><img src="istockphoto-143917249-612x612.jpg" alt="Elephant drinking water">
             </div>
             <div class="gallery-item"><img src="faf6d13c437930b034485b306ca2e093.jpg" alt="Tourists photographing">
             </div>
             <div class="gallery-item"><img src="little-governors-camp-masai-mara-safari-bush-dining-scaled.webp"
                     alt="Tourists in a safari jeep">
             </div>
-            <div class="gallery-item"><img src="OIP (1).webp" alt="Lioness and cub"></div>
-            <div class="gallery-item"><img src="R (1).jpg" alt="Safari jeep and elephant">
+            <div class="gallery-item"><img src="istockphoto-672930304-612x612.jpg" alt="Lioness and cub"></div>
+            <div class="gallery-item"><img src="mik.3.jpg" alt="Safari jeep and elephant">
             </div>
             <div class="gallery-item"><img src="R.jpg" alt="Black rhino"></div>
             <div class="gallery-item"><img src="473544254c0050559fd474a8913e0e19.jpg" alt="Flamingos at a lake">
@@ -4175,10 +4513,6 @@
         </div>
 
     </main>
-
-
-
-
 
     <div class="map">
         <iframe
@@ -4209,7 +4543,7 @@
 
         <div class="loss-containering">
 
-            <form id="contactForm">
+            <form id="contactForm" onsubmit="return false;">
 
                 <input type="text" id="name" placeholder="Your Name" required style="height:50px;">
 
@@ -4240,11 +4574,6 @@
         </div>
     </section>
 
-
-
-
-
-
     <footer>
         <div class="footer-container" id="foot">
 
@@ -4261,7 +4590,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -4271,12 +4600,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 
@@ -4305,34 +4634,6 @@
         <script src="scroll.js"></script>
 
 
-
-        <!-- <script>
-                const images = [
-
-                    "url('R.jpg')",
-
-
-                ];
-
-                let index = 0;
-                const body = document.body;
-
-                function changeBackground() {
-
-                    body.style.backgroundImage = images[index];
-
-
-                    index = (index + 1) % images.length;
-                }
-
-
-                changeBackground();
-                setInterval(changeBackground, 7000);
-            </script> -->
-
-
-
-        <!-- here script for slide -->
         <script src="foercardslies.js"></script>
 
 
@@ -4440,103 +4741,82 @@
         </script>
 
         <script>
-            document.getElementById("contactForm").addEventListener("submit", async function (e) {
-                e.preventDefault();
+            document.addEventListener("DOMContentLoaded", function () {
 
-                const data = {
-                    name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
-                    phone: document.getElementById("phone").value,
-                    package: document.getElementById("package").value,
-                    date: document.getElementById("date").value,
-                    people: document.getElementById("people").value,
-                    message: document.getElementById("message").value
-                };
+                document.getElementById("contactForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
 
-                try {
+                    const data = {
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        phone: document.getElementById("phone").value,
+                        package: document.getElementById("package").value,
+                        date: document.getElementById("date").value,
+                        people: document.getElementById("people").value,
+                        message: document.getElementById("message").value
+                    };
 
-                    const res = await fetch("http://127.0.0.1:5000/send", {
+                    fetch("http://127.0.0.1:5000/send", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify(data)
-                    });
+                    })
+                        .then(res => res.json())
+                        .then(res => {
+                            alert(res.message);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            alert("Server error ❌");
+                        });
+                });
 
-                    const result = await res.json();
-
-                    if (result.status === "ok") {
-                        alert("✅ Booking saved in database and email sent!");
-                        document.getElementById("contactForm").reset();
-                    } else {
-
-                        alert("❌ Failed: " + (result.msg || "Unknown error"));
-                        console.error(result);
-                    }
-
-                } catch (err) {
-                    console.error(err);
-                    alert("❌ Server not running or connection failed");
-                }
             });
         </script>
 
         <script>
-            const chatIcon = document.getElementById('chat-icon');
-            const chatContainer = document.getElementById('chat-container');
-            const closeBtn = document.getElementById('close-btn');
-            const chatBox = document.getElementById('chat-box');
-            const userInput = document.getElementById('user-input');
-            const sendBtn = document.getElementById('send-btn');
+            document.getElementById("submitTrip").addEventListener("click", function () {
 
-            chatIcon.onclick = () => {
-                chatContainer.style.display = 'flex';
-                chatIcon.style.display = 'none'; // Hide icon when chat is open
-            };
+                const data = {
+                    destination: document.getElementById("destination").value,
+                    duration: document.getElementById("duration").value,
+                    budget: document.getElementById("budget").value,
+                    accommodationType: document.getElementById("accommodationType").value,
+                    experienceType: document.getElementById("experienceType").value,
+                    specialRequests: document.getElementById("specialRequests").value,
+                    needFlights: document.getElementById("needFlights").value,
+                    airportTransfer: document.getElementById("airportTransfer").value,
+                    fullName: document.getElementById("fullName").value,
+                    email: document.getElementById("email").value,
+                    phone: document.getElementById("phone").value
+                };
 
-            closeBtn.onclick = () => {
-                chatContainer.style.display = 'none';
-                chatIcon.style.display = 'flex'; // Show icon when chat is closed
-            };
-
-            function appendMessage(text, sender) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = `message ${sender}`;
-                msgDiv.innerText = text;
-                chatBox.appendChild(msgDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-
-            async function handleChat() {
-                const message = userInput.value.trim();
-                if (!message) return;
-
-                appendMessage(message, 'user');
-                userInput.value = '';
-
-                try {
-                    const response = await fetch('http://127.0.0.1:5000/chat', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: message })
+                fetch("http://127.0.0.1:5000/api/submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.success) {
+                            alert("✅ Submitted successfully & email sent");
+                        } else {
+                            alert("❌ " + result.message);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("❌ Server error");
                     });
-                    const data = await response.json();
-                    appendMessage(data.reply || "I'm having trouble connecting.", 'bot');
-                } catch (error) {
-                    appendMessage("Error: Is your Python server running?", 'bot');
-                }
-            }
-
-            sendBtn.onclick = handleChat;
-            userInput.onkeypress = (e) => { if (e.key === 'Enter') handleChat(); };
+            });
         </script>
-
 
         <script src="count.js"></script>
 
 
 
-        <!--Start of Tawk.to Script-->
         <script type="text/javascript">
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
             (function () {
@@ -4548,7 +4828,19 @@
                 s0.parentNode.insertBefore(s1, s0);
             })();
         </script>
-        <!--End of Tawk.to Script-->
+
+        <script>
+            const cards = document.querySelectorAll('.feature-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function () {
+                    cards.forEach(c => c.classList.remove('is-selected'));
+
+                    this.classList.add('is-selected');
+                });
+            });
+        </script>
+
 </body>
 
 </html>

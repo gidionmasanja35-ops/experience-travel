@@ -9,14 +9,13 @@
     <script type="text/javascript">
 
         (function () {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your Public Key
+            emailjs.init("YOUR_PUBLIC_KEY");
         })();
 
 
 
     </script>
     <style>
-        /* --- YOUR CSS --- */
         .amazing-sectioning {
             text-align: center;
             padding: 60px 20px;
@@ -117,7 +116,6 @@
             background-color: #16a34a;
         }
 
-        /* Responsive Fix */
         @media screen and (max-width: 768px) {
 
             input,
@@ -128,6 +126,59 @@
             .amazing-sectioning h2 {
                 font-size: 1.8rem;
             }
+        }
+
+         .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -190,18 +241,15 @@
 
     <script>
         function sendMessage() {
-            // 1. Get input values
             const name = document.getElementById("u_name").value;
             const email = document.getElementById("u_email").value;
             const pkg = document.getElementById("u_package").value;
 
-            // 2. Simple Validation
             if (name === "" || email === "" || pkg === "") {
                 alert("Please fill in the required fields (Name, Email, and Package)!");
                 return;
             }
 
-            // 3. Send Email via EmailJS
             emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
                 from_name: name,
                 user_email: email,
@@ -216,7 +264,6 @@
                 console.error("Email failed:", err);
             });
 
-            // 4. Immediately switch to Success Message
             document.getElementById("form-step").style.display = "none";
             document.getElementById("success-step").style.display = "block";
         }

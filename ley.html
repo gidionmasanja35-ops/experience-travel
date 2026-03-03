@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Travel Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+    <i class="bi bi-caret-down-fill"></i>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+        }
+
+        .main-hero {
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .main-hero::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            top: 0;
+            left: 0;
+        }
+
+        .main-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .main-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .main-hero p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .main-hero button {
+            padding: 15px 30px;
+            background: #ff9800;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .trip-builder-section {
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .trip-form-container {
+            background: white;
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .trip-progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .trip-progress {
+            height: 100%;
+            width: 0%;
+            background: #ff9800;
+            transition: 0.3s;
+        }
+
+        .trip-step {
+            display: none;
+        }
+
+        .trip-step.active {
+            display: block;
+        }
+
+        .trip-step h2 {
+            margin-bottom: 15px;
+        }
+
+        .trip-step input,
+        .trip-step select,
+        .trip-step textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .trip-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .trip-next,
+        .trip-prev {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .trip-next {
+            background: #ff9800;
+            color: white;
+        }
+
+        .trip-prev {
+            background: #ddd;
+        }
+
+        .trip-submit {
+            width: 100%;
+            padding: 12px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .trip-success {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #2e7d32;
+        }
+
+        .trip-video-section {
+            background: #111;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .trip-video-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .trip-video-section iframe {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border-radius: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 50px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+
+        }
+
+        .footer-container ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .footer-container ul li a:hover {
+            color: #f4c542;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 5px 0;
+            color: #ccc;
+        }
+
+        .contact-item i {
+            color: #4CAF50;
+            margin-right: 10px;
+            width: 15px;
+        }
+
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .quick-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+
+        .social-icons {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4CAF50;
+            transform: scale(1.1);
+        }
+
+
+        .legal-links a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .legal-links a:hover {
+            color: #4CAF50;
+        }
+
+
+        .footer-bottom {
+            background-color: #222;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.8em;
+            color: #999;
+            border-top: 1px solid #444;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-col {
+                min-width: 100%;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #444;
+
+            }
+
+
+            .footer-col h4 {
+                margin: 0 auto 15px auto;
+            }
+
+            .quick-links ul {
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .legal-links {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+
+            .footer-col:last-of-type {
+                border-bottom: none;
+            }
+        }
+
+        .footer-tours ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-tours ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-tours li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-tours li a:hover {
+            color: #4CAF50;
+        }
+
+
+        .footer-tours h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-info-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #38761d;
+
+
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-item {
+
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+
+        .contact-item:nth-child(even) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .e-heading {
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+        .l-heading {
+            color: #f2f5f2;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 12rem;
+        }
+
+         .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<script>
+    function toggleMenu() {
+        document.querySelector(".navbar ul").classList.toggle("show");
+    }
+</script>
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<style>
+    .scrolled {
+        background-color: white !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+</style>
+
+<body>
+
+
+
+
+    <section class="main-hero">
+        <div class="main-hero-content">
+            <h1>Design Your Dream Journey</h1>
+            <p>Your personal travel designer will craft a custom itinerary just for you.</p>
+            <button onclick="scrollToTripForm()">Start Customizing</button>
+        </div>
+    </section>
+
+    <section class="trip-builder-section" id="tripFormSection">
+        <div class="trip-form-container">
+
+            <div class="trip-progress-bar">
+                <div class="trip-progress" id="progress"></div>
+            </div>
+
+            <form id="tripForm">
+
+                <div class="trip-step active">
+                    <h2>Destination Details</h2>
+                    <label>Destination</label>
+                    <input type="text" required>
+                    <label>Trip Duration</label>
+                    <select required>
+                        <option value="">Select Duration</option>
+                        <option>3-5 Days</option>
+                        <option>1 Week</option>
+                        <option>2 Weeks</option>
+                    </select>
+                    <div class="trip-buttons">
+                        <span></span>
+                        <button type="button" class="trip-next">Next</button>
+                    </div>
+                </div>
+
+                <div class="trip-step">
+                    <h2>Accommodation Preferences</h2>
+                    <label>Budget Range</label>
+                    <select required>
+                        <option value="">Select Budget</option>
+                        <option>$ Budget</option>
+                        <option>$$ Mid-range</option>
+                        <option>$$$ Luxury</option>
+                        <option>$$$$ Ultra Luxury</option>
+                    </select>
+                    <label>Type of Stay</label>
+                    <select required>
+                        <option value="">Select Type</option>
+                        <option>Hotel</option>
+                        <option>Resort</option>
+                        <option>Boutique Hotel</option>
+                        <option>Villa</option>
+                    </select>
+                    <div class="trip-buttons">
+                        <button type="button" class="trip-prev">Back</button>
+                        <button type="button" class="trip-next">Next</button>
+                    </div>
+                </div>
+
+                <div class="trip-step">
+                    <h2>Experience Preferences</h2>
+                    <label>Type of Experience</label>
+                    <select required>
+                        <option value="">Select Experience</option>
+                        <option>Relaxing</option>
+                        <option>Adventure</option>
+                        <option>Cultural</option>
+                        <option>Food & Wine</option>
+                        <option>Nature</option>
+                    </select>
+                    <label>Special Requests</label>
+                    <textarea rows="3"></textarea>
+                    <div class="trip-buttons">
+                        <button type="button" class="trip-prev">Back</button>
+                        <button type="button" class="trip-next">Next</button>
+                    </div>
+                </div>
+
+                <div class="trip-step">
+                    <h2>Transportation</h2>
+                    <label>Need Flights?</label>
+                    <select required>
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <label>Need Airport Transfer?</label>
+                    <select required>
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <div class="trip-buttons">
+                        <button type="button" class="trip-prev">Back</button>
+                        <button type="button" class="trip-next">Next</button>
+                    </div>
+                </div>
+
+                <div class="trip-step">
+                    <h2>Contact Information</h2>
+                    <label>Full Name</label>
+                    <input type="text" required>
+                    <label>Email</label>
+                    <input type="email" required>
+                    <label>Phone (Optional)</label>
+                    <input type="tel">
+                    <button type="submit" class="trip-submit">Get My Custom Trip Plan</button>
+                </div>
+
+            </form>
+
+            <div class="trip-success" id="successMessage">
+                ✅ Thank you! Your custom trip request has been submitted.<br>
+                Our travel designer will contact you within 24 hours.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- <section class="trip-video-section">
+        <h2>Experience The Journey</h2>
+        <iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4" allowfullscreen></iframe>
+    </section> -->
+
+    <footer>
+        <div class="footer-container" id="foot">
+
+            <div class="footer-col logo-col">
+                <div class="footer-logo">HOLLI TOUR</div>
+                <p class="tagline">Your personalized path to the African wilderness.</p>
+                <p class="contact-item"><i class="fas fa-map-marker-alt"></i> Arusha, Tanzania</p>
+                <p class="contact-item"><i class="fas fa-envelope"></i> info@holltour.com</p>
+                <p class="contact-item"><i class="fas fa-phone-alt"></i> +255 777 123 456</p>
+            </div>
+
+            <div class="footer-col quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="co.html">Home</a></li>
+                    <li><a href="#destination-home">Destinations</a></li>
+                    <li><a href="about-us.html">About US</a></li>
+                    <li><a href="#review-home">Reviews</a></li>
+                    <li><a href="#gallery-home">Gallery</a></li>
+                    <li><a href="for..html">Contact</a>
+                </ul>
+            </div>
+
+            <div class="footer-tours">
+                <h4>Tours</h4>
+                <ul>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="mikumi.html">Mikumi National Park</a></li>
+                </ul>
+            </div> <br>
+
+            <div class="footer-col social-col">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Holli Tour. All rights reserved.
+        </div>
+
+
+
+
+
+        <script>
+            const steps = document.querySelectorAll(".trip-step");
+            const nextBtns = document.querySelectorAll(".trip-next");
+            const prevBtns = document.querySelectorAll(".trip-prev");
+            const progress = document.getElementById("progress");
+            const form = document.getElementById("tripForm");
+            const successMessage = document.getElementById("successMessage");
+
+            let currentStep = 0;
+
+            function updateSteps() {
+                steps.forEach((step, index) => {
+                    step.classList.toggle("active", index === currentStep);
+                });
+                progress.style.width = ((currentStep) / (steps.length - 1)) * 100 + "%";
+            }
+
+            // Next buttons
+            nextBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    if (currentStep < steps.length - 1) { currentStep++; updateSteps(); }
+                });
+            }); // Previous buttons
+            prevBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        updateSteps();
+                    }
+                });
+            });
+
+            // ================= UPDATED FORM SUBMISSION =================
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                // Collect all data from form steps
+                const data = {
+                    destination: steps[0].querySelector('input').value,
+                    duration: steps[0].querySelector('select').value,
+                    budget: steps[1].querySelectorAll('select')[0].value,
+                    accommodationType: steps[1].querySelectorAll('select')[1].value,
+                    experienceType: steps[2].querySelector('select').value,
+                    specialRequests: steps[2].querySelector('textarea').value,
+                    needFlights: steps[3].querySelectorAll('select')[0].value,
+                    airportTransfer: steps[3].querySelectorAll('select')[1].value,
+                    fullName: steps[4].querySelectorAll('input')[0].value,
+                    email: steps[4].querySelectorAll('input')[1].value,
+                    phone: steps[4].querySelectorAll('input')[2].value
+                };
+
+                try {
+                    const response = await fetch('http://localhost:5000/api/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        // Hide form & progress, show success
+                        form.style.display = "none";
+                        document.querySelector(".trip-progress-bar").style.display = "none";
+                        successMessage.style.display = "block";
+                    } else {
+                        alert("Error submitting form. Please try again.");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Server error. Please try later.");
+                }
+            });
+
+            updateSteps();
+
+        </script>
+</body>
+
+</html>

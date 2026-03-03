@@ -632,6 +632,40 @@
             text-align: left;
         }
 
+        .footer-container ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .footer-container ul li a:hover {
+            color: #f4c542;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
         .route-table th,
         .route-table td {
             padding: 15px 20px;
@@ -681,6 +715,59 @@
             .route-table {
                 font-size: 0.8rem;
             }
+        }
+
+         .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -848,15 +935,15 @@
                 <a href="Mountainbike.html">
                     <li>Mountainbike tour Lake Manyara</li>
                 </a>
-                <a href="">
+                <a href="Masai-vilage.html">
                     <li>Visit Maasai village</li>
                 </a>
-                <a href="">
+                <a href="hadzabe.html">
                     <li>Visit Hadzabe tribe</li>
                 </a>
-                <a href="">
-                    <li>Cultural tour Mto wa Mbu</li>
-                </a>
+
+                <li>Cultural tour Mto wa Mbu</li>
+
             </ul>
 
 
@@ -964,7 +1051,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -974,12 +1061,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 
@@ -1003,6 +1090,7 @@
         <div class="footer-bottom">
             &copy; 2025 Holli Tour. All rights reserved.
         </div>
+
 
         <script>
             let images = [

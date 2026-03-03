@@ -578,6 +578,59 @@
     .container-fluid:hover {
         transform: scale(1);
     }
+
+     .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
 </style>
 
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -771,19 +824,19 @@
         <h1>Activities in Tarangire National Park</h1>
 
         <ul>
-            <a href="">
+            <a href="baloon-tour.html">
                 <li>Hot Air Balloon Safari</li>
             </a>
             <a href="">
                 <li>Walking Safari</li>
             </a>
-            <a href="">
+            <a href="photographic.html">
                 <li>Photographic Activities</li>
             </a>
-            <a href="">
+            <a href="game driver.html">
                 <li>Game Driver</li>
             </a>
-            <a href="">
+            <a href="Masai-vilage.html">
                 <li>Visit Masai Village</li>
             </a>
 
@@ -821,7 +874,7 @@
         </div>
     </div> -->
 
-    <footer>
+     <footer>
         <div class="footer-container" id="foot">
 
             <div class="footer-col logo-col">
@@ -837,7 +890,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -847,12 +900,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="mikumi.html">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 
@@ -876,8 +929,6 @@
         <div class="footer-bottom">
             &copy; 2025 Holli Tour. All rights reserved.
         </div>
-
-
 
 
 

@@ -38,7 +38,7 @@
 
         .hero {
             height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/mik.wall.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('mik.5.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -77,7 +77,6 @@
             z-index: 2;
         }
 
-        /* --- TRIP DETAIL CONTENT (Image 2) --- */
         .detail-layout {
             max-width: 1200px;
             margin: 40px auto;
@@ -600,6 +599,59 @@
 
             }
         }
+
+        .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
     </style>
 </head>
 
@@ -705,7 +757,7 @@
 
     <div class="detail-layout">
         <article class="description">
-            <h2>NGORONGORO NATIONAL PARK</h2>
+            <h2>MIKUMI NATIONAL PARK</h2>
             <P>Mikumi National Park is one of the southern <a href="index.html">national park in Tanzania</a>. Its
                 open horizons and abundant
                 wildlife draws frequent comparisons to the more famous Serengeti Plains. The park borders the Selous
@@ -715,7 +767,7 @@
             </P>
 
             <div class="slideshow-container">
-                <img id="slide" src="img/ngo1.jpg" alt="Slideshow Image" class="fade-in">
+                <img id="slide" src="mik.6.jpg" alt="Slideshow Image" class="fade-in">
 
                 <button class="prev" onclick="prev()">&#10094;</button>
                 <button class="next" onclick="next()">&#10095;</button>
@@ -723,19 +775,15 @@
             </div>
 
             <h2>Wildlife in the Mikumi National Park</h2>
-            <p>The park has a great variety of animals and most visitors come to this National Park aiming to spot four
-                of the ‘Big Five’ – leopard, lion, elephant and buffalo. It’s a great place for a Tanzania vacation, you
-                will enjoy it! Hippos live in a pair of mud pools and are one of the highlights. These are situated 5 km
-                north of the main entrance gate. They are supported by an ever-changing cast of water-birds.</p>
+            <p>Mikumi National Park is Tanzania's fourth-largest park, offering a stunning landscape often compared to
+                the Serengeti. Located near Morogoro, its centerpiece is the Mkata Floodplain, where vast open horizons
+                provide excellent wildlife viewing. This accessible destination serves as a vital gateway for travelers
+                seeking an authentic and convenient African safari.</p>
 
-            <p>The Mkata Foodplain is a wide area in Mikumi National Park that is very good for wildlife viewing. Lions
-                survey their grassy kingdom – and the zebra, wildebeest, impala and buffalo herds that migrate across it
-                – from the flattened tops of termite mounds, or sometimes during the rains, from perches high in the
-                trees. Giraffes forage in the isolated acacia stands that fringe the Mkata River, islets of shade
-                favoured also by Mikumi’s elephants. Mkata Foodplain is perhaps the most reliable place in Tanzania for
-                sightings of the powerful eland, the world’s largest antelope. The equally impressive greater kudu and
-                sable antelope haunt the miombo-covered foothills of the mountains that rise from Mikumi National Park’s
-                borders.</p>
+            <p>The park is home to diverse wildlife, including elephants, zebras, and the famous tree-climbing lions.
+                Birdwatchers can enjoy over 400 species, while the popular hippo pools offer close-up views of these
+                massive creatures. Surrounded by the Uluguru and Rubeho mountains, Mikumi provides a breathtaking
+                backdrop for every nature lover’s adventure..</p>
 
             <h2>Birds in Mikumi</h2>
             <p>
@@ -749,16 +797,16 @@
             </p>
 
             <div class="slideshow-container">
-                <img id="slide" src="img/mik.7.jpg" alt="Slideshow Image" class="fade-in">
+                <img id="slide" src="bird-mikumi.jpg" alt="Slideshow Image" class="fade-in">
 
             </div>
 
-            <h1>Excursions and activities in Ngorongoro Conservation Area</h1>
+            <h1>Excursions and activities in Mikumi National Park</h1>
 
             <ul>
-                <li>Mountainbike tour Lake Manyara</li>
-                <li>Visit Maasai village</li>
-                <li>Visit Hadzabe tribe</li>
+               <a href="Mountainbike.html"> <li>Mountainbike tour Lake Manyara</li></a>
+                <a href="Masai-vilage.html"><li>Visit Maasai village</li></a>
+               <a href="hadzabe.html"> <li>Visit Hadzabe tribe</li></a>
                 <li>Cultural tour Mto wa Mbu</li>
             </ul>
 
@@ -832,7 +880,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -842,12 +890,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="mikumi.html">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 
@@ -874,10 +922,10 @@
 
         <script>
             let images = [
-                "img/mik.5.jpg",
-                "img/mik.2.jpg",
-                "img/mik.6.jpg",
-                "img/mik5.jpg"
+                "mik.5.jpg",
+                "mik.2.jpg",
+                "mik.6.jpg",
+                "mik5.jpg"
 
             ];
 

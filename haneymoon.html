@@ -465,6 +465,40 @@
 
         }
 
+        .footer-container ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .footer-container ul li a:hover {
+            color: #f4c542;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
         .slideshow-container {
             position: relative;
             max-width: 800px;
@@ -573,6 +607,103 @@
             box-shadow: none;
             transform: translateY(-50%);
         }
+
+        /* MEGA MENU STYLE */
+        .mega-dropdown {
+            position: relative;
+        }
+
+        .mega-menu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 1000px;
+            background: white;
+            padding: 30px;
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
+        }
+
+        .mega-dropdown:hover .mega-menu {
+            display: grid;
+        }
+
+        .mega-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .mega-item h5 {
+            margin-top: 10px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        .yellow-box {
+            background: #f4c430;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+        }
+
+         .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
     </style>
 </head>
 
@@ -630,6 +761,41 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+                <li class="nav-item dropdown mega-dropdown">
+                    <a class="nav-link" href="#">Discover Tanzania</a>
+
+                    <div class="mega-menu">
+                        <div class="mega-item">
+                            <img src="island.jpg">
+                            <h5>Islands</h5>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="accommodation.jpg">
+                            <h5>Accommodations</h5>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="activities.jpg">
+                            <h5>Activities</h5>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="blog.jpg">
+                            <h5>Blog</h5>
+                        </div>
+
+                        <div class="mega-item">
+                            <img src="reviews.jpg">
+                            <h5>Traveller Reviews</h5>
+                        </div>
+
+                        <div class="mega-item yellow-box">
+                            <h5>Request a Proposal<br>At No Charge</h5>
+                        </div>
+                    </div>
+                </li>
 
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
@@ -715,7 +881,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -725,12 +891,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 

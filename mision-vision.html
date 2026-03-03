@@ -39,6 +39,59 @@
         text-align: center;
         font-size: 30px;
     }
+
+     .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
 </style>
 
 <body>
@@ -63,26 +116,21 @@
     document.addEventListener('DOMContentLoaded', function () {
         const vision = document.getElementById('vision-statement');
         const mission = document.getElementById('mission-statement');
-        // Set the duration for each slide in milliseconds (e.g., 5000ms = 5 seconds)
         const duration = 5000;
 
         let isVision = true;
 
         function switchSlide() {
             if (isVision) {
-                // Switch from Vision to Mission
                 vision.classList.remove('active');
                 mission.classList.add('active');
             } else {
-                // Switch from Mission back to Vision
                 mission.classList.remove('active');
                 vision.classList.add('active');
             }
-            // Toggle the state for the next switch
             isVision = !isVision;
         }
 
-        // This sets up a timer to run the switchSlide function every 'duration' milliseconds
         setInterval(switchSlide, duration);
     });
 </script>

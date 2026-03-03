@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+
+
+    <link rel="stylesheet" href="foercardslies.css">
+
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+    <i class="bi bi-caret-down-fill"></i>
+
+
+    <style>
+        .about-hero {
+            height: 75vh;
+            background: url("istockphoto-178586669-612x612.jpg") center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .about-hero .overlay {
+            position: relative;
+            color: #fff;
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .about-main {
+            padding: 80px 5%;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stats div strong {
+            font-size: 2rem;
+            color: #d18d3b;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .small-img {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 140px;
+            border-radius: 12px;
+            border: 5px solid #fff;
+        }
+
+        .features {
+            padding: 80px 5%;
+            background: #fafafa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-card .icon {
+            width: 70px;
+            height: 70px;
+            margin: auto;
+            background: #fff3e6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #d18d3b;
+        }
+
+        .feature-card:hover .icon {
+            background-color: #d18d3b;
+            color: #fff;
+            transform: scale(1.12);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            height: 3px;
+            background-color: #d18d3b;
+            transform: translateX(-50%);
+            transition: width 0.20s ease;
+            border-radius: 3px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card:hover::after {
+            width: 70%;
+        }
+
+        .feature-card:active,
+        .feature-card.is-active {
+            border: 2px solid #d18d3b;
+            box-shadow: 0 20px 45px rgba(209, 141, 59, 0.25);
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 50px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .footer-container ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .footer-container ul li a:hover {
+            color: #f4c542;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 5px 0;
+            color: #ccc;
+        }
+
+        .contact-item i {
+            color: #4CAF50;
+            margin-right: 10px;
+            width: 15px;
+        }
+
+
+        .footer-col h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .quick-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+
+        .social-icons {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4CAF50;
+            transform: scale(1.1);
+        }
+
+
+        .legal-links a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .legal-links a:hover {
+            color: #4CAF50;
+        }
+
+
+        .footer-bottom {
+            background-color: #222;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.8em;
+            color: #999;
+            border-top: 1px solid #444;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-col {
+                min-width: 100%;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #444;
+
+            }
+
+
+            .footer-col h4 {
+                margin: 0 auto 15px auto;
+            }
+
+            .quick-links ul {
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .legal-links {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+
+            .footer-col:last-of-type {
+                border-bottom: none;
+            }
+        }
+
+        .footer-tours ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-tours ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-tours li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-tours li a:hover {
+            color: #4CAF50;
+        }
+
+
+        .footer-tours h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-info-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #38761d;
+
+
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-item {
+
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+
+        .contact-item:nth-child(even) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .e-heading {
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+        .l-heading {
+            color: #f2f5f2;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 12rem;
+        }
+
+        .container-fluid {
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            gap: 15px;
+            content: '';
+
+
+
+
+        }
+
+        .breadcrumbs {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+         .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<script>
+    function toggleMenu() {
+        document.querySelector(".navbar ul").classList.toggle("show");
+    }
+</script>
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<style>
+    .scrolled {
+        background-color: white !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+</style>
+
+<body>
+
+    <div class="contact-info-container" style="position: fixed;
+  top: 0;
+  width: 100%;z-index: 1000;">
+        <div class="contact-item">📞 +255624689318</div>
+        <div class="contact-item">|</div>
+        <div class="contact-item">📧 info@Hollgrivens.com</div>
+        <div class="contact-item">|</div>
+        <div class="contact-item">📍 Arusha, Tanzania .</div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 font-size:25px" style="position: fixed;
+  width: 100%;z-index: 99999; margin-top:50px">
+        <div class="container-fluid">
+
+            <div class="logo-lrf">
+                <img src="HOLL.png" alt="your tour logo">
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destination-home">Destinations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accomodation-home">Accomodation</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activity-sm">Activities</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#review-home">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery-home">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="cont.html">Contact</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="about-hero">
+        <div class="overlay">
+            <h1>About</h1>
+            <p>
+                We are a passionate team dedicated to delivering reliable, high-quality solutions.
+                Our focus is on innovation, clarity, and putting people first.
+                We strive to create value through integrity, creativity, and consistent results.
+            </p>
+
+        </div>
+
+
+    </section>
+
+    <section class="about-main">
+        <div class="about-grid">
+
+            <div class="about-text">
+                <h2>Crafting Unforgettable Adventures in Tanzania</h2>
+                <p>
+                    At Hollgrivens Tour & Safaris, we create authentic travel experiences
+                    in Tanzania’s stunning landscapes.
+                </p>
+                <p>
+                    Our experienced local guides provide insider knowledge while supporting
+                    sustainable tourism and local communities.
+                </p>
+
+                <div class="stats">
+                    <div><strong>100+</strong><span>Tours</span></div>
+                    <div><strong>1</strong><span>Country</span></div>
+                    <div><strong>5+</strong><span>Years Experience</span></div>
+                    <div><strong>Excellent</strong><span>Reviews</span></div>
+                </div>
+            </div>
+
+            <div class="about-images">
+                <img src="istockphoto-177726380-612x612.jpg" class="main-img">
+                <img src="istockphoto-525980262-612x612.jpg" class="small-img">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="icon">👥</div>
+                <h3>Expert Local Guides</h3>
+                <p>Knowledgeable guides sharing deep insights.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🎧</div>
+                <h3>24/7 Customer Support</h3>
+                <p>Assistance anytime before or during your trip.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">💲</div>
+                <h3>Best Price Guarantee</h3>
+                <p>Transparent pricing with excellent value.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📍</div>
+                <h3>Local Expertise</h3>
+                <p>Deep knowledge of Tanzania’s wildlife & culture.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📅</div>
+                <h3>Flexible Booking</h3>
+                <p>Trips customized to your schedule.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🌿</div>
+                <h3>Sustainable Travel</h3>
+                <p>Supporting conservation & local communities.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container" id="foot">
+
+            <div class="footer-col logo-col">
+                <div class="footer-logo">HOLLI TOUR</div>
+                <p class="tagline">Your personalized path to the African wilderness.</p>
+                <p class="contact-item"><i class="fas fa-map-marker-alt"></i> Arusha, Tanzania</p>
+                <p class="contact-item"><i class="fas fa-envelope"></i> info@holltour.com</p>
+                <p class="contact-item"><i class="fas fa-phone-alt"></i> +255 777 123 456</p>
+            </div>
+
+            <div class="footer-col quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="co.html">Home</a></li>
+                    <li><a href="#destination-home">Destinations</a></li>
+                    <li><a href="about-us.html">About US</a></li>
+                    <li><a href="#review-home">Reviews</a></li>
+                    <li><a href="#gallery-home">Gallery</a></li>
+                    <li><a href="for..html">Contact</a>
+                </ul>
+            </div>
+
+            <div class="footer-tours">
+                <h4>Tours</h4>
+                <ul>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="mikumi.html">Mikumi National Park</a></li>
+                </ul>
+            </div> <br>
+
+            <div class="footer-col social-col">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Holli Tour. All rights reserved.
+        </div>
+
+</body>
+
+</html>

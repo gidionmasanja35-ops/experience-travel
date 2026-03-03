@@ -96,6 +96,40 @@
         margin: 15px 0;
     }
 
+    .footer-container ul li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #ffffff;
+        transition: 0.3s ease;
+    }
+
+    .footer-container ul li a:hover {
+        color: #f4c542;
+        animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-3px);
+        }
+
+        50% {
+            transform: translateX(3px);
+        }
+
+        75% {
+            transform: translateX(-3px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
     .left p {
         color: #2b1a0f;
         letter-spacing: 1.3px;
@@ -580,6 +614,59 @@
     .container-fluid:hover {
         transform: scale(1);
     }
+
+     .navbar .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f3f5f3 !important;
+
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #406445;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-3px);
+            }
+
+            50% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .navbar .nav-link:hover {
+            animation: shake 0.3s ease-in-out;
+        }
 </style>
 
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -603,7 +690,7 @@
     </div>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm p-3 font-size:25px" style="position: fixed;
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 font-size:25px" style="position: fixed;
   width: 100%;z-index: 99999; margin-top:50px">
         <div class="container-fluid">
 
@@ -756,25 +843,17 @@
         <h1>Activities in Serengeti National Park</h1>
 
         <ul>
-            <a href="">
+            <a href="ser-baloon.html">
                 <li>Hot Air Balloon Safari</li>
             </a>
-            <a href="">
-                <li>Walking Safari</li>
-            </a>
-            <a href="">
-                <li>Photographic Activities</li>
-            </a>
-            <a href="">
-                <li>Game Driver</li>
-            </a>
+
 
         </ul>
 
 
         <div class="slider">
 
-            <img id="slide" src="steptodowncom244956-1210x700.jpg">
+            <img id="slide" src="ser-bal7.jpg">
 
             <button class="prev" onclick="prev()">❮</button>
             <button class="next" onclick="next()">❯</button>
@@ -793,16 +872,7 @@
         </ul>
     </div>
 
-    <!-- <div class="video-header">
-        <h2>Want to see more? This video is worth watching</h2>
-        <div class="video-container">
-            <img src="image_c887de.jpg" alt="Serengeti Video">
-            <iframe width="756" height="425" src="https://www.youtube.com/embed/IfxoZ_tiE0g"
-                title="Serengeti National Park, Tanzania  [Amazing Places 4K]" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </div> -->
+ 
 
     <footer>
         <div class="footer-container" id="foot">
@@ -820,7 +890,7 @@
                 <ul>
                     <li><a href="co.html">Home</a></li>
                     <li><a href="#destination-home">Destinations</a></li>
-                    <li><a href="#activity-sm">Activities</a></li>
+                    <li><a href="about-us.html">About US</a></li>
                     <li><a href="#review-home">Reviews</a></li>
                     <li><a href="#gallery-home">Gallery</a></li>
                     <li><a href="for..html">Contact</a>
@@ -830,12 +900,12 @@
             <div class="footer-tours">
                 <h4>Tours</h4>
                 <ul>
-                    <li><a href="">Serengeti National Park</a></li>
-                    <li><a href="">tarangile National Park</a></li>
-                    <li><a href="">Zanzibari (unguja & Pemba)</a></li>
-                    <li><a href="">Lake Manyara National Park</a></li>
-                    <li><a href="">Mafia Island</a></li>
-                    <li><a href="">Salous Game Reserve</a></li>
+                    <li><a href="explore.html">Serengeti National Park</a></li>
+                    <li><a href="tara.html">tarangile National Park</a></li>
+                    <li><a href="kilim.html">Kilimanjaro National Park</a></li>
+                    <li><a href="manyara.html">Lake Manyara National Park</a></li>
+                    <li><a href="ngorongoro.html">Ngorongoro National Park</a></li>
+                    <li><a href="mikumi.html">Mikumi National Park</a></li>
                 </ul>
             </div> <br>
 
@@ -859,7 +929,6 @@
         <div class="footer-bottom">
             &copy; 2025 Holli Tour. All rights reserved.
         </div>
-
 
 
 
